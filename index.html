@@ -3,64 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Nome - Designer Gráfico</title>
+    <title>Seu Nome - Designer Gráfico Criativo</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="main-container">
+    <div class="container">
         <header class="hero-section">
-            <h1>Olá, sou [Seu Nome]</h1>
-            <h2>Designer Gráfico</h2>
-            <p>Transformando ideias em visuais impactantes.</p>
-            <a href="#portfolio" class="button">Ver Portfólio</a>
+            <img src="images/seu-perfil.jpg" alt="Sua Foto de Perfil" class="profile-pic">
+            <h1>Olá, eu sou [Seu Nome]</h1>
+            <p class="tagline">Designer Gráfico | Transformando ideias em impacto visual</p>
         </header>
 
         <section id="about" class="section-card">
-            <h3>Sobre Mim</h3>
-            <p>Sou um designer gráfico apaixonado por criar soluções visuais criativas e funcionais. Com experiência em branding, UI/UX e ilustração, meu objetivo é ajudar você a comunicar sua mensagem de forma eficaz.</p>
-            <img src="images/profile-pic.jpg" alt="Sua foto de perfil" class="profile-pic">
+            <h2>Sobre Mim</h2>
+            <p>Com paixão pela criatividade e um olhar aguçado para os detalhes, sou um designer gráfico focado em **soluções visuais que realmente funcionam**. Minha jornada no design me levou a explorar diversas áreas, desde a criação de identidades visuais marcantes até o desenvolvimento de materiais impressos e digitais que comunicam com clareza e beleza.</p>
+            <p>Acredito que um bom design vai além da estética; ele resolve problemas, conecta pessoas e impulsiona negócios. Estou sempre em busca de novas formas de inovar e entregar projetos que superem as expectativas.</p>
         </section>
 
-        <section id="portfolio" class="section-card">
-            <h3>Meus Projetos</h3>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="images/project1.jpg" alt="Descrição do Projeto 1">
-                    <h4>Nome do Projeto 1</h4>
-                    <p>Branding, Web Design</p>
+        <section id="why-hire-me" class="section-card">
+            <h2>Por Que Contratar Meus Serviços?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>Visão Estratégica</h3>
+                    <p>Não entrego apenas design, mas soluções alinhadas aos seus objetivos de negócio. Meus projetos são pensados para gerar resultados.</p>
                 </div>
-                <div class="portfolio-item">
-                    <img src="images/project2.jpg" alt="Descrição do Projeto 2">
-                    <h4>Nome do Projeto 2</h4>
-                    <p>Ilustração, Design Editorial</p>
+                <div class="benefit-item">
+                    <h3>Criatividade Original</h3>
+                    <p>Cada projeto é único. Desenvolvo conceitos inovadores e visuais autênticos que farão sua marca se destacar.</p>
                 </div>
-                <div class="portfolio-item">
-                    <img src="images/project3.jpg" alt="Descrição do Projeto 3">
-                    <h4>Nome do Projeto 3</h4>
-                    <p>UI/UX Design, Aplicativos</p>
+                <div class="benefit-item">
+                    <h3>Compromisso com a Qualidade</h3>
+                    <p>Prezo pela excelência em cada detalhe, garantindo que o trabalho final seja impecável e profissional.</p>
                 </div>
+                <div class="benefit-item">
+                    <h3>Comunicação Clara</h3>
+                    <p>Mantenho você atualizado em todas as etapas, com um processo transparente e colaborativo para garantir que sua voz seja ouvida.</p>
                 </div>
-        </section>
-
-        <section id="contact" class="section-card">
-            <h3>Entre em Contato</h3>
-            <p>Vamos conversar sobre o seu próximo projeto. Estou disponível para novas oportunidades!</p>
-            <form action="#" method="POST" class="contact-form">
-                <input type="text" placeholder="Seu Nome" required>
-                <input type="email" placeholder="Seu E-mail" required>
-                <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
-                <button type="submit" class="button">Enviar Mensagem</button>
-            </form>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/seuperfil" target="_blank">LinkedIn</a>
-                <a href="https://behance.net/seuperfil" target="_blank">Behance</a>
-                <a href="mailto:seuemail@exemplo.com">E-mail</a>
             </div>
         </section>
 
+        <section id="links" class="section-card">
+            <h2>Conecte-se Comigo</h2>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/seuperfil" target="_blank" class="social-button linkedin">LinkedIn</a>
+                <a href="https://behance.net/seuperfil" target="_blank" class="social-button behance">Behance</a>
+                <a href="https://instagram.com/oponcedesign" target="_blank" class="social-button instagram">Instagram</a>
+                <a href="mailto:contato@gustavoponce.com.br" class="social-button email">E-mail</a>
+            </div>
+        </section>
+
+        <section id="contact" class="section-card">
+            <h2>Vamos Criar Algo Incrível Juntos!</h2>
+            <p>Se você tem um projeto em mente ou gostaria de saber mais sobre meus serviços, preencha o formulário abaixo. Responderei o mais breve possível.</p>
+            <form action="#" method="POST" class="contact-form">
+                <input type="text" placeholder="Seu Nome Completo" required>
+                <input type="email" placeholder="Seu Melhor E-mail" required>
+                <input type="text" placeholder="Assunto (Ex: Projeto de Branding, Ilustração)" required>
+                <textarea placeholder="Sua Mensagem Detalhada" rows="6" required></textarea>
+                <button type="submit" class="submit-button">Enviar Mensagem</button>
+            </form>
+        </section>
+
         <footer>
-            <p>&copy; 2025 [Seu Nome]. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Gustavo Ponce. Todos os direitos reservados.</p>
         </footer>
     </div>
 </body>

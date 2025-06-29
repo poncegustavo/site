@@ -1,277 +1,277 @@
-/* Importa a fonte Montserrat do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+/* Importa a fonte Poppins do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-    /* Cores base para o gradiente e texto */
-    --primary-gradient-start: #6a11cb; /* Cor inicial do gradiente (roxo) */
-    --primary-gradient-end: #2575fc;   /* Cor final do gradiente (azul) */
-    --text-color: #333;
-    --background-color: #f0f2f5;
-    --card-background: #fff;
-    --border-radius: 12px;
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    --button-background: #007bff; /* Cor do botão */
-    --button-hover: #0056b3;
+    --text-primary: #333;
+    --text-secondary: #555;
+    --background-light: #f8f8f8;
+    --card-background: #ffffff;
+    --accent-color: #007bff; /* Um azul vibrante como a Gab usa, você pode mudar! */
+    --accent-hover: #0056b3;
+    --border-radius-lg: 12px;
+    --border-radius-sm: 8px;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: var(--background-light);
+    color: var(--text-primary);
+    line-height: 1.6;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Alinha no topo, não centraliza verticalmente todo o body */
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
-    color: var(--text-color);
 }
 
-.main-container {
+.container {
     width: 90%;
-    max-width: 900px; /* Limita a largura máxima do conteúdo */
-    background-color: var(--card-background);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    padding: 40px;
-    margin: 40px 0; /* Margem superior e inferior para espaçamento */
-    text-align: center;
+    max-width: 800px; /* Largura máxima para o conteúdo */
+    margin: 40px auto; /* Centraliza o container e dá margem superior/inferior */
+    box-shadow: var(--shadow-light);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden; /* Garante que o raio de borda seja aplicado */
 }
 
-/* Estilo para as seções (cards) */
+/* Estilo para todas as seções */
 .section-card {
     background-color: var(--card-background);
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    padding: 30px;
-    margin-bottom: 30px;
-    text-align: left; /* Conteúdo interno alinhado à esquerda */
+    padding: 40px;
+    border-bottom: 1px solid #eee; /* Separador sutil entre as seções */
 }
 
 .section-card:last-child {
-    margin-bottom: 0; /* Remove a margem da última seção */
+    border-bottom: none; /* Remove a borda da última seção */
+    border-bottom-left-radius: var(--border-radius-lg);
+    border-bottom-right-radius: var(--border-radius-lg);
 }
 
 h1, h2, h3 {
-    color: var(--primary-gradient-start); /* Usa uma cor do gradiente para os títulos */
+    color: var(--text-primary);
+    font-weight: 600;
     margin-bottom: 15px;
-    font-weight: 700;
+    line-height: 1.2;
 }
 
 h1 {
     font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
 h2 {
-    font-size: 1.8em;
-    color: #666;
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--accent-color);
 }
 
 h3 {
-    font-size: 1.5em;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
+    font-size: 1.4em;
+    margin-top: 0;
 }
 
 p {
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.button {
-    display: inline-block;
-    background-color: var(--button-background);
-    color: white;
-    padding: 12px 25px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-}
-
-.button:hover {
-    background-color: var(--button-hover);
+    margin-bottom: 15px;
+    color: var(--text-secondary);
 }
 
 /* Hero Section */
 .hero-section {
-    padding: 50px 0;
-    background: linear-gradient(45deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 30px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    color: #fff; /* Para o texto "Transformando ideias..." e botões que não são transparentes */
-    -webkit-text-fill-color: initial; /* Reseta para o texto do botão ser visível */
-    background: initial; /* Reseta o background para que o texto e o botão apareçam */
+    background-color: var(--card-background);
+    padding: 60px 40px;
+    text-align: center;
+    border-top-left-radius: var(--border-radius-lg);
+    border-top-right-radius: var(--border-radius-lg);
 }
 
-.hero-section h1, .hero-section h2 {
-    -webkit-text-fill-color: transparent; /* Mantém o gradiente nos títulos */
-    background-image: linear-gradient(45deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-}
-
-
-.hero-section p {
-    color: #666;
-    font-size: 1.1em;
-}
-
-
-/* Imagem de Perfil */
 .profile-pic {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    margin-top: 20px;
-    border: 5px solid var(--primary-gradient-start);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border: 4px solid var(--accent-color);
+    margin-bottom: 25px;
+    box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.1); /* Sombra suave */
 }
 
-/* Portfólio Grid */
-.portfolio-grid {
+.tagline {
+    font-size: 1.2em;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-top: -10px; /* Ajusta espaçamento com o h1 */
+}
+
+/* Seção Por Que Contratar */
+.benefits-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
-    margin-top: 20px;
+    margin-top: 30px;
+    text-align: left;
 }
 
-.portfolio-item {
-    background-color: #f9f9f9;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-    text-align: center; /* Centraliza o conteúdo da caixa do projeto */
-    padding-bottom: 20px; /* Adiciona um padding na parte inferior */
+.benefit-item {
+    background-color: #f0f0f0; /* Fundo mais claro para cada item */
+    padding: 25px;
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
 }
 
-.portfolio-item:hover {
+.benefit-item:hover {
     transform: translateY(-5px);
 }
 
-.portfolio-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
+.benefit-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
 }
 
-.portfolio-item h4 {
-    margin: 15px 0 5px;
-    color: var(--primary-gradient-start);
-    font-size: 1.2em;
+.benefit-item p {
+    font-size: 0.95em;
+    color: var(--text-secondary);
 }
 
-.portfolio-item p {
-    font-size: 0.9em;
-    color: #777;
-    margin-bottom: 0; /* Remove margem inferior padrão do parágrafo */
+/* Links Sociais (Botões) */
+.social-links {
+    display: flex;
+    flex-wrap: wrap; /* Quebra para próxima linha em telas pequenas */
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
 }
+
+.social-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    min-width: 120px; /* Largura mínima para botões */
+    text-align: center;
+}
+
+.social-button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* Cores específicas para ícones de redes sociais (opcional) */
+.social-button.linkedin { background-color: #0077B5; }
+.social-button.behance { background-color: #1769ff; }
+.social-button.instagram { background-color: #E4405F; }
+.social-button.email { background-color: #D44638; } /* Cor para e-mail */
 
 /* Formulário de Contato */
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 25px;
+    gap: 18px;
+    margin-top: 30px;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 12px 15px;
+    padding: 14px 20px;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
+    border-radius: var(--border-radius-sm);
+    font-family: 'Poppins', sans-serif;
     font-size: 1em;
     width: 100%;
     box-sizing: border-box; /* Garante que o padding não aumente a largura */
+    background-color: #fefefe;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: var(--primary-gradient-end);
-    box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.2);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
-.contact-form button {
-    background-color: var(--primary-gradient-end);
+.contact-form textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.submit-button {
+    background-color: var(--accent-color);
     color: white;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    padding: 12px 25px;
-    border-radius: 8px;
+    padding: 15px 30px;
+    border-radius: var(--border-radius-sm);
     font-weight: 700;
     font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.contact-form button:hover {
-    background-color: var(--primary-gradient-start);
-}
-
-/* Links Sociais */
-.social-links {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.social-links a {
-    color: var(--primary-gradient-end);
-    text-decoration: none;
-    font-weight: 700;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--primary-gradient-start);
+.submit-button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
 }
 
 /* Rodapé */
 footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-    color: #777;
+    text-align: center;
+    padding: 25px 40px;
+    background-color: var(--card-background);
+    color: var(--text-secondary);
     font-size: 0.9em;
+    border-top: 1px solid #eee;
+    border-bottom-left-radius: var(--border-radius-lg);
+    border-bottom-right-radius: var(--border-radius-lg);
 }
 
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
-    .main-container {
-        padding: 20px;
-        margin: 20px 0;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
-    h2 {
-        font-size: 1.5em;
+    .container {
+        margin: 20px auto;
+        width: 95%;
     }
 
     .section-card {
-        padding: 20px;
+        padding: 30px 20px;
     }
 
-    .portfolio-grid {
+    h1 {
+        font-size: 2.2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .benefits-grid {
         grid-template-columns: 1fr; /* Uma coluna em telas menores */
     }
 
     .social-links {
-        flex-direction: column;
+        flex-direction: column; /* Botões um abaixo do outro */
         gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+    .profile-pic {
+        width: 100px;
+        height: 100px;
     }
 }
