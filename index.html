@@ -6,14 +6,29 @@
     <title>Seu Nome - Designer Gráfico Criativo</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <header class="hero-section">
+        <header class="main-header">
+            <div class="logo">
+                <a href="#hero-section">
+                    <img src="images/sua-logo.png" alt="Sua Logo - Designer Gráfico">
+                    </a>
+            </div>
+            <nav class="main-nav">
+                <a href="#about">Sobre</a>
+                <a href="#why-hire-me">Diferenciais</a>
+                <a href="#links">Contatos</a>
+                <a href="#contact" class="button-contact">Fale Comigo</a>
+            </nav>
+        </header>
+
+        <section id="hero-section" class="hero-section">
             <img src="images/seu-perfil.jpg" alt="Sua Foto de Perfil" class="profile-pic">
             <h1>Olá, eu sou [Seu Nome]</h1>
             <p class="tagline">Designer Gráfico | Transformando ideias em impacto visual</p>
-        </header>
+        </section>
 
         <section id="about" class="section-card">
             <h2>Sobre Mim</h2>
@@ -25,18 +40,22 @@
             <h2>Por Que Contratar Meus Serviços?</h2>
             <div class="benefits-grid">
                 <div class="benefit-item">
+                    <i class="fas fa-lightbulb"></i>
                     <h3>Visão Estratégica</h3>
                     <p>Não entrego apenas design, mas soluções alinhadas aos seus objetivos de negócio. Meus projetos são pensados para gerar resultados.</p>
                 </div>
                 <div class="benefit-item">
+                    <i class="fas fa-palette"></i>
                     <h3>Criatividade Original</h3>
                     <p>Cada projeto é único. Desenvolvo conceitos inovadores e visuais autênticos que farão sua marca se destacar.</p>
                 </div>
                 <div class="benefit-item">
+                    <i class="fas fa-award"></i>
                     <h3>Compromisso com a Qualidade</h3>
                     <p>Prezo pela excelência em cada detalhe, garantindo que o trabalho final seja impecável e profissional.</p>
                 </div>
                 <div class="benefit-item">
+                    <i class="fas fa-comments"></i>
                     <h3>Comunicação Clara</h3>
                     <p>Mantenho você atualizado em todas as etapas, com um processo transparente e colaborativo para garantir que sua voz seja ouvida.</p>
                 </div>
@@ -46,11 +65,11 @@
         <section id="links" class="section-card">
             <h2>Conecte-se Comigo</h2>
             <div class="social-links">
-                <a href="https://linkedin.com/in/seuperfil" target="_blank" class="social-button linkedin">LinkedIn</a>
-                <a href="https://behance.net/seuperfil" target="_blank" class="social-button behance">Behance</a>
-                <a href="https://instagram.com/oponcedesign" target="_blank" class="social-button instagram">Instagram</a>
-                <a href="mailto:contato@gustavoponce.com.br" class="social-button email">E-mail</a>
-            </div>
+                <a href="https://linkedin.com/in/seuperfil" target="_blank" class="social-button linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <a href="https://behance.net/seuperfil" target="_blank" class="social-button behance"><i class="fab fa-behance"></i> Behance</a>
+                <a href="https://instagram.com/seuperfil" target="_blank" class="social-button instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="mailto:seuemail@exemplo.com" class="social-button email"><i class="fas fa-envelope"></i> E-mail</a>
+                </div>
         </section>
 
         <section id="contact" class="section-card">
@@ -65,8 +84,37 @@
             </form>
         </section>
 
-        <footer>
-            <p>&copy; 2025 Gustavo Ponce. Todos os direitos reservados.</p>
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section about-footer">
+                    <h3>[Seu Nome] Design</h3>
+                    <p>Transformando ideias em visuais impactantes e estratégicos. Sua visão, meu design.</p>
+                </div>
+                <div class="footer-section quick-links">
+                    <h3>Navegação Rápida</h3>
+                    <ul>
+                        <li><a href="#about">Sobre Mim</a></li>
+                        <li><a href="#why-hire-me">Meus Diferenciais</a></li>
+                        <li><a href="#links">Contato e Redes</a></li>
+                        <li><a href="#contact">Fale Comigo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-info">
+                    <h3>Entre em Contato</h3>
+                    <p><i class="fas fa-envelope"></i> seuemail@exemplo.com</p>
+                    <p><i class="fas fa-phone-alt"></i> (XX) XXXX-XXXX</p> <p><i class="fas fa-map-marker-alt"></i> Sua Cidade, Seu Estado</p> </div>
+                <div class="footer-section footer-social">
+                    <h3>Siga-me</h3>
+                    <div class="social-icons">
+                        <a href="https://linkedin.com/in/seuperfil" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://behance.net/seuperfil" target="_blank"><i class="fab fa-behance"></i></a>
+                        <a href="https://instagram.com/seuperfil" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 [Seu Nome]. Todos os direitos reservados.</p>
+            </div>
         </footer>
     </div>
 </body>
