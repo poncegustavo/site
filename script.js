@@ -5,12 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const body = document.body;
     const navLinks = document.querySelectorAll('.mobile-nav a');
 
-    if (hamburger && mobileNav) {
-        hamburger.addEventListener('click', function() {
-            toggleMenu();
-        });
+    function toggleMenu() {
+        hamburger.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        body.classList.toggle('nav-open');
+    }
 
-        // Fecha o menu ao clicar em um link (útil para âncoras)
+    if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', toggleMenu);
+
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (mobileNav.classList.contains('active')) {
@@ -20,12 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    function toggleMenu() {
-        hamburger.classList.toggle('active');
-        mobileNav.classList.toggle('active');
-        body.classList.toggle('nav-open');
-    }
-
     const animatedElements = document.querySelectorAll('[data-animate]');
 
     if (animatedElements.length > 0) {
@@ -33,6 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    const delay = entry.target.getAttribute('data-delay');
+                    if (delay) {
+                        entry.target.style.transitionDelay = `${delay}ms`;
+                    }
                     observer.unobserve(entry.target);
                 }
             });
@@ -41,11 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         animatedElements.forEach(element => {
-            // Aplica o delay da animação escalonada
-            const delay = element.getAttribute('data-delay');
-            if (delay) {
-                element.style.transitionDelay = `${delay}ms`;
-            }
             observer.observe(element);
         });
     }
