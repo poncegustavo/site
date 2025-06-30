@@ -1,39 +1,46 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    // --- LÓGICA DO MENU HAMBÚRGUER ---
     const hamburger = document.querySelector('.hamburger-menu');
     const mobileNav = document.querySelector('.mobile-nav');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav ul li a'); // Todos os links do menu móvel
+    const body = document.body;
 
-    // Função para fechar o menu
-    function closeMobileMenu() {
-        hamburger.classList.remove('active');
-        mobileNav.classList.remove('active');
-        document.body.style.overflowY = 'auto'; // Habilita o scroll do body
+    if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', function() {
+            // Alterna o estado 'active' do ícone
+            this.classList.toggle('active');
+            
+            // Alterna a visibilidade do menu mobile
+            mobileNav.classList.toggle('active');
+            
+            // Bloqueia a rolagem do body quando o menu está aberto
+            body.classList.toggle('nav-open');
+        });
     }
 
-    // Toggle do menu ao clicar no hambúrguer
-    hamburger.addEventListener('click', function() {
-        this.classList.toggle('active'); // Anima o hambúrguer
-        mobileNav.classList.toggle('active'); // Mostra/Esconde o menu
-        
-        // Impede o scroll do body quando o menu está aberto
-        if (mobileNav.classList.contains('active')) {
-            document.body.style.overflowY = 'hidden';
-        } else {
-            document.body.style.overflowY = 'auto';
-        }
-    });
+    // --- LÓGICA DA ANIMAÇÃO DE SCROLL ---
+    const animatedElements = document.querySelectorAll('[data-animate]');
 
-    // Fecha o menu móvel ao clicar em um link
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            closeMobileMenu();
+    if (animatedElements.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Quando o elemento está 10% visível na tela
+                if (entry.isIntersecting) {
+                    // Adiciona a classe 'visible' para ativar a animação CSS
+                    entry.target.classList.add('visible');
+                    
+                    // (Opcional) Para de observar o elemento depois que ele foi animado
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 // A animação começa quando 10% do elemento está visível
         });
-    });
 
-    // Fecha o menu móvel ao redimensionar a tela (caso o usuário mude de orientação, etc.)
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 1024) { // Tamanho onde o menu hamburguer desaparece no CSS
-            closeMobileMenu();
-        }
-    });
+        // Observa cada um dos elementos
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+    }
+
 });

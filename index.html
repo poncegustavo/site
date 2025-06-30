@@ -3,72 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gustavo Ponce | Designer Gráfico</title>
+    <title>Gustavo Ponce | Designer Gráfico Estratégico</title>
     
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header class="main-header">
-        <nav class="main-nav content-width">
+        <div class="header-content content-width">
             <a href="index.html" class="logo">Gustavo Ponce</a>
-            <div class="nav-links">
+            
+            <nav class="main-nav">
                 <a href="sobre.html">Sobre</a>
                 <a href="servicos.html">Serviços</a>
                 <a href="blog.html">Blog</a>
-                <a href="contato.html" class="button-contact">Contato</a>
+                <a href="contato.html" class="button-contact">Solicitar Orçamento</a>
+            </nav>
+
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
-        </nav>
+        </div>
     </header>
+
+    <nav class="mobile-nav">
+        <a href="sobre.html">Sobre</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="blog.html">Blog</a>
+        <a href="contato.html">Contato</a>
+        <a href="contato.html" class="button-contact-mobile">Solicitar Orçamento</a>
+    </nav>
 
     <main>
         <section class="hero-section">
-            <div class="hero-content content-width">
-                <h1>Design que conecta, inspira e resolve.</h1>
-                <p class="tagline">Transformando ideias em identidades visuais memoráveis e experiências digitais que geram resultados.</p>
-                <a href="servicos.html" class="button-primary">Conheça Meus Serviços</a>
+            <div class="hero-content content-width" data-animate>
+                <span class="subheading">DESIGN GRÁFICO QUE GERA RESULTADOS</span>
+                <h1>Vamos transformar sua marca em uma potência visual.</h1>
+                <p class="tagline">Eu crio identidades visuais e experiências digitais que não apenas encantam, mas também convertem. Pronto para se destacar?</p>
+                <a href="contato.html" class="button-primary">Quero um Orçamento Agora</a>
             </div>
         </section>
 
         <section id="about" class="about-section content-width">
-            <div class="about-image">
+            <div class="about-image" data-animate>
                 <img src="images/foto-gustavo.jpg" alt="Foto de Gustavo Ponce">
             </div>
-            <div class="about-text">
-                <span class="subheading">Sobre Mim</span>
-                <h2>Crio marcas com propósito e paixão</h2>
-                <p>Com um olhar aguçado para detalhes e paixão pela criatividade, meu trabalho vai além da estética. Eu desenvolvo soluções visuais que comunicam com clareza, resolvem problemas e fortalecem a conexão entre marcas e pessoas.</p>
-                <a href="sobre.html" class="button-secondary">Leia Minha História</a>
+            <div class="about-text" data-animate>
+                <span class="subheading">Quem sou eu</span>
+                <h2>Designer e parceiro estratégico do seu negócio.</h2>
+                <p>Minha missão é ir além do design bonito. Eu mergulho no universo da sua marca para criar soluções visuais com propósito, baseadas em três pilares:</p>
+                <ul class="principles-list">
+                    <li><i class="fas fa-check-circle"></i> <strong>Estratégia:</strong> Todo design é pensado para atingir seus objetivos.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Clareza:</strong> Comunicação direta, que conecta com seu público.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Estética:</strong> Um visual impecável que reflete a qualidade do seu trabalho.</li>
+                </ul>
+                <a href="sobre.html" class="button-secondary">Conheça minha trajetória</a>
             </div>
         </section>
 
         <section id="services" class="services-section">
             <div class="services-content content-width">
-                <span class="subheading">Serviços</span>
-                <h2>Como posso ajudar sua marca</h2>
+                <div class="services-header" data-animate>
+                    <span class="subheading">Soluções</span>
+                    <h2>Serviços pensados para o seu sucesso</h2>
+                </div>
                 <div class="services-grid">
-                    <div class="service-item">
+                    <div class="service-item" data-animate>
                         <i class="fas fa-pencil-ruler"></i>
-                        <h3>Identidade Visual</h3>
-                        <p>Desenvolvimento completo de logotipo, guia da marca e papelaria.</p>
+                        <h3>Identidade Visual Estratégica</h3>
+                        <p>Criação ou redesign de marcas que se destacam e criam conexões duradouras.</p>
                     </div>
-                    <div class="service-item">
+                    <div class="service-item" data-animate>
                         <i class="fas fa-palette"></i>
-                        <h3>Design Digital</h3>
-                        <p>Criação de materiais para redes sociais, sites e campanhas online.</p>
+                        <h3>Design para Redes Sociais</h3>
+                        <p>Posts e templates que aumentam seu engajamento e fortalecem sua presença online.</p>
                     </div>
-                    <div class="service-item">
-                        <i class="fas fa-print"></i>
-                        <h3>Design Impresso</h3>
-                        <p>Layouts para cartões, flyers, banners, embalagens e editoriais.</p>
+                    <div class="service-item" data-animate>
+                        <i class="fas fa-desktop"></i>
+                        <h3>UI/UX Design para Sites</h3>
+                        <p>Interfaces intuitivas e atraentes para sites e aplicativos que convertem visitantes em clientes.</p>
                     </div>
                 </div>
-                <div class="view-all-services">
+                <div class="view-all-services" data-animate>
                     <a href="servicos.html" class="button-primary">Ver todos os serviços</a>
                 </div>
             </div>
@@ -78,9 +101,9 @@
     <footer class="main-footer">
         <div class="footer-content content-width">
             <div class="footer-text">
-                <h3>Vamos criar algo incrível juntos?</h3>
-                <p>Estou disponível para novos projetos. Entre em contato!</p>
-                <a href="mailto:contato@gustavoponce.com.br">contato@gustavoponce.com.br</a>
+                <h3>Pronto para dar o próximo passo?</h3>
+                <p>Vamos conversar sobre como meu design pode impulsionar seu negócio. O orçamento é sem compromisso!</p>
+                <a href="contato.html" class="footer-email">contato@gustavoponce.com.br</a>
             </div>
             <div class="footer-social">
                 <a href="https://www.instagram.com/ogustavoponce" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
