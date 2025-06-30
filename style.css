@@ -1,548 +1,458 @@
-/* Importa as fontes Montserrat (para títulos) e Roboto Mono (para um toque techy) */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap');
-/* Importa Animate.css para animações */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+/* Importa a fonte Inter do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    /* Cores do tema Futurístico */
-    --background-dark: #0A0A1F; /* Fundo principal muito escuro, quase preto */
-    --card-background: #1A1A3A; /* Fundo dos cards, um pouco mais claro que o principal */
-    --text-light: #E0E0FF; /* Texto principal claro, com um toque azulado */
-    --text-accent: #88EEFF; /* Azul elétrico vibrante para destaques */
-    --accent-blue: #00BFFF; /* Azul céu profundo para botões e links */
-    --accent-blue-hover: #0099CC; /* Azul mais escuro no hover */
-    --border-color: #3A3A6A; /* Bordas sutis para elementos */
-    --shadow-color: rgba(0, 191, 255, 0.15); /* Sombra com brilho azulado */
+    /* Paleta de Cores Limpa e Moderna */
+    --primary-color: #5d5dff; /* Azul principal para botões, destaques */
+    --primary-hover: #4a4ade; /* Azul mais escuro no hover */
+    --text-dark: #2c3e50; /* Texto principal escuro */
+    --text-medium: #555; /* Texto secundário */
+    --text-light: #777; /* Texto de detalhes */
+    --background-white: #ffffff; /* Fundo principal claro */
+    --background-light-grey: #f8f8f8; /* Fundo de seção secundária */
+    --border-grey: #eee; /* Bordas sutis */
+    --shadow-light: rgba(0, 0, 0, 0.08); /* Sombra suave */
 
-    /* Espaçamentos e raios */
-    --spacing-md: 25px;
-    --spacing-lg: 50px;
-    --border-radius-lg: 15px;
-    --border-radius-sm: 10px;
+    /* Tipografia */
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Espaçamentos e Raios */
+    --spacing-xs: 10px;
+    --spacing-sm: 20px;
+    --spacing-md: 40px;
+    --spacing-lg: 80px;
+    --border-radius-base: 8px;
 }
 
-/* Base styles */
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--background-dark);
-    color: var(--text-light);
-    line-height: 1.8; /* Aumentado para melhor legibilidade em fundos escuros */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
+/* Reset Básico e Box-sizing */
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
-.container {
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    line-height: 1.6;
+    background-color: var(--background-light-grey);
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza verticalmente na tela */
+    min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+}
+
+/* Wrapper principal do site */
+.site-wrapper {
     width: 90%;
-    max-width: 1000px; /* Um pouco mais largo para um visual mais expansivo */
-    margin: 30px auto; /* Margem superior para separar do topo da tela */
-    box-shadow: 0 10px 40px var(--shadow-color); /* Sombra mais intensa e colorida */
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-    background-color: var(--card-background);
-    border: 1px solid var(--border-color); /* Borda sutil */
+    max-width: 1200px;
+    background-color: var(--background-white);
+    box-shadow: 0 0 30px var(--shadow-light); /* Sombra mais pronunciada para o container principal */
+    border-radius: var(--border-radius-base);
+    overflow: hidden; /* Garante que bordas arredondadas funcionem */
+    margin: var(--spacing-sm) auto; /* Margem superior e inferior para um respiro */
+}
+
+/* Seções Padrão */
+.section {
+    padding: var(--spacing-lg) var(--spacing-md); /* Espaçamento interno generoso */
+    text-align: center;
+}
+
+.section-content { /* Contêiner para o conteúdo dentro da seção, para controlar a largura */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.bg-light { /* Fundo para seções claras */
+    background-color: var(--background-light-grey);
+}
+
+/* Títulos */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 2.8em;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    padding-bottom: var(--spacing-xs);
+    display: inline-block; /* Para o after sublinhar apenas o texto */
+}
+
+h2::after { /* Linha de destaque sob os títulos h2 */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.8em;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+p {
+    font-size: 1em;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Botões */
+.button {
+    display: inline-block;
+    padding: 14px 35px;
+    text-decoration: none;
+    border-radius: var(--border-radius-base);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.button.primary {
+    background-color: var(--primary-color);
+    color: var(--background-white);
+}
+
+.button.primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* --- Cabeçalho Principal --- */
 .main-header {
+    background-color: var(--background-white);
+    padding: var(--spacing-sm) var(--spacing-md);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px var(--spacing-lg);
-    background-color: var(--card-background);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 5px 20px var(--shadow-color);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    box-sizing: border-box;
-    border-top-left-radius: var(--border-radius-lg);
-    border-top-right-radius: var(--border-radius-lg);
+    border-bottom: 1px solid var(--border-grey);
 }
 
 .main-header .logo img {
-    height: 45px; /* Levemente maior */
+    height: 50px; /* Tamanho padrão da logo */
     vertical-align: middle;
 }
 
-.main-header .logo span {
-    font-family: 'Roboto Mono', monospace; /* Fonte techy para a logo de texto */
-    font-size: 2em; /* Maior */
-    font-weight: 700;
-    color: var(--text-accent);
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: var(--spacing-md);
+}
+
+.main-nav ul li a {
     text-decoration: none;
-    letter-spacing: 1px; /* Espaçamento entre letras para efeito futurista */
+    color: var(--text-medium);
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.main-nav a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-weight: 600;
-    margin-left: 35px; /* Mais espaçamento */
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-    padding: 8px 0;
-    position: relative;
-}
-
-.main-nav a::after { /* Linha sublinhada animada */
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--text-accent);
-    transition: width 0.3s ease;
-}
-
-.main-nav a:hover {
-    color: var(--text-accent);
-    text-shadow: 0 0 8px rgba(136, 238, 255, 0.6); /* Brilho no hover */
-}
-
-.main-nav a:hover::after {
-    width: 100%;
-}
-
-.main-nav .button-contact {
-    background-color: var(--accent-blue);
-    color: white;
-    padding: 12px 30px; /* Maior padding */
-    border-radius: 30px;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    margin-left: 35px;
-    box-shadow: 0 6px 20px rgba(0, 191, 255, 0.3); /* Sombra mais vibrante */
-    font-weight: 700;
-}
-
-.main-nav .button-contact:hover {
-    background-color: var(--accent-blue-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 191, 255, 0.5);
-}
-
-/* --- Estilo Geral de Seções e Títulos --- */
-.section-card {
-    padding: var(--spacing-lg);
-    background-color: var(--card-background);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.section-card:last-of-type {
-    border-bottom: none;
-}
-
-h1, h2, h3 {
-    color: var(--text-accent); /* Títulos em azul elétrico */
-    font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    text-shadow: 0 0 10px rgba(136, 238, 255, 0.3); /* Brilho sutil nos títulos */
-}
-
-h1 {
-    font-size: 3.8em; /* Maior */
-    font-weight: 800;
-    margin-bottom: 15px;
-}
-
-h2 {
-    font-size: 3em; /* Maior */
-    text-align: center;
-    margin-bottom: 40px; /* Mais espaçamento */
-    position: relative;
-    padding-bottom: 15px;
-}
-
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px; /* Mais largo */
-    height: 5px; /* Mais espesso */
-    background: linear-gradient(90deg, transparent, var(--text-accent), transparent); /* Gradiente para a linha */
-    border-radius: 3px;
-}
-
-h3 {
-    font-size: 1.8em; /* Maior */
-    margin-top: 0;
-}
-
-p {
-    margin-bottom: 20px;
-    color: var(--text-light);
+.main-nav ul li a:hover {
+    color: var(--primary-color);
 }
 
 /* --- Hero Section --- */
 .hero-section {
-    padding: 100px var(--spacing-lg); /* Mais padding */
-    text-align: center;
-    background-color: var(--card-background);
-    position: relative;
-    overflow: hidden; /* Para garantir que o pseudo-elemento de fundo não vaze */
+    padding: var(--spacing-lg) var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg); /* Espaço entre o conteúdo e a imagem */
+    text-align: left; /* Conteúdo alinhado à esquerda */
+    background-color: var(--background-white);
 }
 
-/* Efeito de fundo sutil para a hero section */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(0, 191, 255, 0.05) 0%, transparent 70%);
-    animation: rotateBackground 20s linear infinite; /* Animação de rotação */
-    z-index: 0;
+.hero-content {
+    flex: 1;
+    max-width: 600px;
 }
 
-@keyframes rotateBackground {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.hero-image {
+    flex: 1;
+    display: flex; /* Para centralizar a imagem verticalmente */
+    justify-content: center; /* Para centralizar a imagem horizontalmente */
 }
 
-.hero-section > * { /* Garante que o conteúdo fique acima do fundo animado */
-    position: relative;
-    z-index: 1;
-}
-
-.profile-pic {
-    width: 200px; /* Maior */
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 6px solid var(--accent-blue); /* Borda mais grossa */
-    margin-bottom: 40px;
-    box-shadow: 0 0 0 10px rgba(0, 191, 255, 0.2), 0 0 30px rgba(0, 191, 255, 0.5); /* Dupla sombra com brilho */
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 5px 15px var(--shadow-light);
 }
 
 .tagline {
-    font-size: 1.5em; /* Maior */
-    color: var(--text-accent);
-    font-weight: 600;
-    margin-top: -10px;
-    letter-spacing: 0.5px;
-    font-family: 'Roboto Mono', monospace; /* Fonte techy para o tagline */
+    font-size: 1.25em;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-top: -var(--spacing-xs); /* Ajuste fino de espaçamento */
 }
 
-/* --- Seção Por Que Contratar --- */
-.benefits-grid {
+/* --- Seção de Serviços --- */
+.services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Cards um pouco maiores */
-    gap: 35px; /* Mais espaçamento */
-    margin-top: 40px;
-    text-align: left;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas flexíveis */
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
 }
 
-.benefit-item {
-    background-color: var(--background-dark); /* Fundo dos itens mais escuro */
-    padding: 35px; /* Mais padding */
-    border-radius: var(--border-radius-sm);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 191, 255, 0.1); /* Sombra mais profunda com brilho sutil */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border: 1px solid var(--border-color); /* Borda para destaque */
+.service-item {
+    background-color: var(--background-white);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 2px 10px var(--shadow-light);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-grey); /* Borda sutil */
 }
 
-.benefit-item:hover {
-    transform: translateY(-10px); /* Mais elevação */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 191, 255, 0.3); /* Sombra mais dramática */
-    border-color: var(--text-accent); /* Borda brilha no hover */
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-.benefit-item i {
-    font-size: 3em; /* Maior */
-    color: var(--text-accent);
-    margin-bottom: 20px;
-    text-shadow: 0 0 15px rgba(136, 238, 255, 0.7); /* Brilho intenso no ícone */
+.service-item i {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    display: block; /* Garante que o ícone ocupe sua própria linha */
 }
 
-.benefit-item h3 {
-    color: var(--text-accent);
-    margin-bottom: 12px;
+.service-item h3 {
+    margin-top: 0;
+    font-size: 1.6em;
 }
 
-.benefit-item p {
-    font-size: 1em;
+.service-item p {
+    font-size: 0.95em;
     color: var(--text-light);
 }
 
-/* --- Links Sociais (Botões) --- */
-.social-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px; /* Mais espaçamento */
-    margin-top: 40px;
+/* --- Seção de Contato --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Formulário maior que as informações */
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    text-align: left;
 }
 
-.social-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--accent-blue);
-    color: white;
-    padding: 14px 32px; /* Maior padding */
-    border-radius: 35px; /* Mais arredondado */
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    min-width: 160px; /* Maior largura mínima */
-    box-shadow: 0 6px 20px rgba(0, 191, 255, 0.2);
-    font-family: 'Montserrat', sans-serif;
-}
-
-.social-button i {
-    margin-right: 10px;
-    font-size: 1.2em;
-}
-
-.social-button:hover {
-    background-color: var(--accent-blue-hover);
-    transform: translateY(-4px); /* Mais elevação */
-    box-shadow: 0 10px 30px rgba(0, 191, 255, 0.4);
-}
-
-/* Cores específicas para ícones de redes sociais (ajustadas para o tema futurístico) */
-.social-button.behance { background-color: #1769ff; } /* Mantido se quiser adicionar */
-.social-button.instagram { background-color: #E1306C; } /* Tom de rosa/roxo mais vibrante */
-.social-button.email { background-color: #FF5722; } /* Laranja/vermelho vibrante */
-.social-button.facebook { background-color: #1877F2; } /* Azul Facebook mais intenso */
-.social-button.whatsapp { background-color: #25D366; } /* Verde WhatsApp */
-
-
-/* --- Formulário de Contato --- */
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Mais espaçamento */
-    margin-top: 40px;
+    background-color: var(--background-white);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 2px 10px var(--shadow-light);
+    border: 1px solid var(--border-grey);
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 18px 25px; /* Maior padding */
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-sm);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em; /* Maior fonte */
-    width: 100%;
-    box-sizing: border-box;
-    background-color: var(--background-dark); /* Fundo do input mais escuro */
-    color: var(--text-light);
+    padding: 12px;
+    margin-bottom: var(--spacing-sm);
+    border: 1px solid var(--border-grey);
+    border-radius: var(--border-radius-base);
+    font-family: var(--font-body);
+    font-size: 1em;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: #8A8AA8; /* Placeholder em tom de cinza azulado */
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: var(--text-accent);
-    box-shadow: 0 0 0 4px rgba(136, 238, 255, 0.3); /* Brilho no foco */
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(93, 93, 255, 0.2);
 }
 
 .contact-form textarea {
     resize: vertical;
+    min-height: 120px;
 }
 
-.submit-button {
-    background-color: var(--text-accent); /* Botão de envio com a cor de destaque */
-    color: var(--background-dark); /* Texto escuro no botão de destaque */
-    border: none;
-    cursor: pointer;
-    padding: 18px 40px; /* Maior padding */
-    border-radius: var(--border-radius-sm);
-    font-weight: 700;
-    font-size: 1.25em; /* Maior fonte */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 8px 25px rgba(136, 238, 255, 0.4); /* Sombra intensa */
+.contact-details {
+    background-color: var(--background-white);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 2px 10px var(--shadow-light);
+    border: 1px solid var(--border-grey);
 }
 
-.submit-button:hover {
-    background-color: var(--accent-blue); /* Muda para azul no hover */
+.contact-details h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.5em;
+    color: var(--text-dark);
+}
+
+.contact-details p {
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    color: var(--text-medium);
+}
+
+.contact-details .icon-spacing {
+    margin-right: 10px;
+    color: var(--primary-color);
+    font-size: 1.1em;
+}
+
+.contact-details .social-links {
+    margin-top: var(--spacing-sm);
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.contact-details .social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
     color: white;
-    transform: translateY(-5px); /* Mais elevação */
-    box-shadow: 0 12px 35px rgba(0, 191, 255, 0.6);
-}
-
-/* --- Rodapé Completo --- */
-.main-footer {
-    background-color: #050510; /* Fundo do rodapé ainda mais escuro */
-    color: #D0D0F0;
-    padding: var(--spacing-lg) 0;
-    border-bottom-left-radius: var(--border-radius-lg);
-    border-bottom-right-radius: var(--border-radius-lg);
-    border-top: 1px solid var(--border-color);
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Colunas um pouco maiores */
-    gap: 35px; /* Mais espaçamento */
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-lg);
-}
-
-.footer-section {
-    margin-bottom: 25px;
-}
-
-.footer-section h3 {
-    color: var(--text-accent);
-    margin-bottom: 25px;
-    font-weight: 600;
-    font-size: 1.4em; /* Maior */
-    text-shadow: none; /* Remove brilho dos títulos do rodapé */
-}
-
-.footer-section p,
-.footer-section ul li {
-    font-size: 1em;
-    line-height: 1.9;
-    color: #B0B0D0; /* Texto mais suave no rodapé */
-}
-
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-section ul li a {
-    color: #B0B0D0;
+    font-size: 1.2em;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.footer-section ul li a:hover {
-    color: var(--text-accent);
+.contact-details .social-links a:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-.footer-section.contact-info p i {
-    margin-right: 12px;
-    color: var(--text-accent);
-}
-
-.footer-section.footer-social .social-icons a {
-    display: inline-block;
-    color: #fff;
-    font-size: 1.8em; /* Ícones maiores */
-    margin-right: 20px;
-    transition: color 0.3s ease, transform 0.2s ease, text-shadow 0.3s ease;
-}
-
-.footer-section.footer-social .social-icons a:hover {
-    color: var(--text-accent);
-    transform: translateY(-5px);
-    text-shadow: 0 0 15px rgba(136, 238, 255, 0.8); /* Brilho intenso no hover */
-}
-
-.footer-bottom {
+/* --- Rodapé --- */
+.main-footer {
+    background-color: var(--text-dark); /* Fundo escuro para contraste */
+    color: var(--background-white);
     text-align: center;
-    border-top: 1px solid #2A2A4A;
-    padding-top: 25px;
-    margin-top: 40px;
+    padding: var(--spacing-sm) var(--spacing-md);
     font-size: 0.9em;
-    color: #8080A0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom-left-radius: var(--border-radius-base);
+    border-bottom-right-radius: var(--border-radius-base);
 }
 
-
-/* --- Media Queries para Responsividade --- */
+/* --- Responsividade --- */
 @media (max-width: 992px) {
+    .site-wrapper {
+        margin: var(--spacing-sm) auto;
+    }
     .main-header {
-        padding: 15px var(--spacing-md);
+        padding: var(--spacing-sm) var(--spacing-sm);
     }
-    .main-nav a {
-        margin-left: 25px;
+    .main-nav ul li {
+        margin-left: var(--spacing-sm);
     }
-    .main-nav .button-contact {
-        margin-left: 25px;
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-md);
     }
-    .hero-section, .section-card {
-        padding: var(--spacing-lg) var(--spacing-md);
+    .hero-content {
+        max-width: 100%;
     }
-    .footer-content {
-        padding: 0 var(--spacing-md);
+    .hero-image img {
+        max-width: 80%; /* Ajuste para imagem em telas menores */
     }
-    h1 { font-size: 3.2em; }
-    h2 { font-size: 2.5em; }
+    .section {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--spacing-sm);
+    }
+    .contact-grid {
+        grid-template-columns: 1fr; /* Coluna única para contato */
+        gap: var(--spacing-md);
+    }
+    .contact-details {
+        margin-top: 0;
+    }
 }
 
 @media (max-width: 768px) {
     .main-header {
         flex-direction: column;
         align-items: center;
-        padding-bottom: 20px;
     }
     .main-header .logo {
-        margin-bottom: 15px;
+        margin-bottom: var(--spacing-xs);
     }
-    .main-nav {
+    .main-nav ul {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
     }
-    .main-nav a, .main-nav .button-contact {
-        margin: 0;
+    .main-nav ul li {
+        margin: var(--spacing-xs);
     }
-
-    h1 { font-size: 2.8em; }
-    h2 { font-size: 2.2em; }
-    .profile-pic {
-        width: 160px;
-        height: 160px;
+    h1 {
+        font-size: 2.8em;
     }
-    .benefits-grid {
-        grid-template-columns: 1fr;
+    h2 {
+        font-size: 2.2em;
     }
-    .social-links {
-        flex-direction: column;
-        gap: 15px;
+    .tagline {
+        font-size: 1.1em;
     }
-    .social-button {
-        width: 100%;
-        min-width: unset;
+    .button {
+        padding: 10px 25px;
     }
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .service-item {
+        padding: var(--spacing-sm);
     }
-    .footer-section h3 {
-        margin-top: 20px;
+    .service-item i {
+        font-size: 2.5em;
     }
-    .footer-section ul {
-        margin-bottom: 20px;
+    .service-item h3 {
+        font-size: 1.4em;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
     }
 }
 
 @media (max-width: 480px) {
-    h1 { font-size: 2.2em; }
-    h2 { font-size: 1.8em; }
-    .profile-pic {
-        width: 120px;
-        height: 120px;
+    h1 {
+        font-size: 2.2em;
     }
-    .hero-section, .section-card, .main-footer {
-        padding: 30px 15px;
+    h2 {
+        font-size: 1.8em;
+    }
+    .section, .hero-section {
+        padding: var(--spacing-md) var(--spacing-xs);
     }
     .main-header {
-        padding: 15px 15px;
+        padding: var(--spacing-xs) var(--spacing-xs);
     }
-    .contact-form input, .contact-form textarea, .submit-button {
-        padding: 15px 20px;
-        font-size: 1em;
+    .services-grid {
+        gap: var(--spacing-xs);
     }
 }
