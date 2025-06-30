@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-
     const hamburger = document.querySelector('.hamburger-menu');
     const mobileNav = document.querySelector('.mobile-nav');
     const body = document.body;
@@ -9,11 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.classList.toggle('active');
         mobileNav.classList.toggle('active');
         body.classList.toggle('nav-open');
+
+        // Adiciona delay escalonado para os links aparecerem
+        if (mobileNav.classList.contains('active')) {
+            navLinks.forEach((link, index) => {
+                link.style.setProperty('--i', index);
+            });
+        }
     }
 
     if (hamburger && mobileNav) {
         hamburger.addEventListener('click', toggleMenu);
-
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (mobileNav.classList.contains('active')) {
@@ -22,9 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
-    const animatedElements = document.querySelectorAll('[data-animate]');
 
+    const animatedElements = document.querySelectorAll('[data-animate]');
     if (animatedElements.length > 0) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -37,12 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.1
-        });
-
-        animatedElements.forEach(element => {
-            observer.observe(element);
-        });
+        }, { threshold: 0.1 });
+        animatedElements.forEach(element => observer.observe(element));
     }
 });
