@@ -11,33 +11,88 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-
 </head>
 <body>
 
-    <main class="hub-container">
-        
-        <img src="images/foto-gustavo.jpg" alt="Foto de perfil de Gustavo Ponce" class="profile-picture">
-        
-        <h1>Gustavo Ponce</h1>
-        
-        <p class="tagline">Designer gráfico focado em soluções visuais que resolvem problemas, conectam pessoas e impulsionam negócios.</p>
-        
-        <nav class="main-links">
-            <a href="servicos.html" class="link-button">Serviços</a>
-            <a href="sobre.html" class="link-button">Sobre Mim</a>
-            <a href="blog.html" class="link-button">Blog</a>
-            <a href="contato.html" class="link-button">Contato</a>
+    <header class="main-header">
+        <nav class="main-nav content-width">
+            <a href="index.html" class="logo">Gustavo Ponce</a>
+            <div class="nav-links">
+                <a href="sobre.html">Sobre</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="blog.html">Blog</a>
+                <a href="contato.html" class="button-contact">Contato</a>
+            </div>
         </nav>
-        
-        <footer class="social-links">
-            <a href="https://www.instagram.com/ogustavoponce" target="_blank" title="Instagram" aria-label="Link para o Instagram de Gustavo Ponce"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/GustavoPonce" target="_blank" title="Facebook" aria-label="Link para o Facebook de Gustavo Ponce"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://wa.me/5542999266932" target="_blank" title="WhatsApp" aria-label="Link para o WhatsApp de Gustavo Ponce"><i class="fab fa-whatsapp"></i></a>
-        </footer>
+    </header>
 
+    <main>
+        <section class="hero-section">
+            <div class="hero-content content-width">
+                <h1>Design que conecta, inspira e resolve.</h1>
+                <p class="tagline">Transformando ideias em identidades visuais memoráveis e experiências digitais que geram resultados.</p>
+                <a href="servicos.html" class="button-primary">Conheça Meus Serviços</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section content-width">
+            <div class="about-image">
+                <img src="images/foto-gustavo.jpg" alt="Foto de Gustavo Ponce">
+            </div>
+            <div class="about-text">
+                <span class="subheading">Sobre Mim</span>
+                <h2>Crio marcas com propósito e paixão</h2>
+                <p>Com um olhar aguçado para detalhes e paixão pela criatividade, meu trabalho vai além da estética. Eu desenvolvo soluções visuais que comunicam com clareza, resolvem problemas e fortalecem a conexão entre marcas e pessoas.</p>
+                <a href="sobre.html" class="button-secondary">Leia Minha História</a>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <div class="services-content content-width">
+                <span class="subheading">Serviços</span>
+                <h2>Como posso ajudar sua marca</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <h3>Identidade Visual</h3>
+                        <p>Desenvolvimento completo de logotipo, guia da marca e papelaria.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-palette"></i>
+                        <h3>Design Digital</h3>
+                        <p>Criação de materiais para redes sociais, sites e campanhas online.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-print"></i>
+                        <h3>Design Impresso</h3>
+                        <p>Layouts para cartões, flyers, banners, embalagens e editoriais.</p>
+                    </div>
+                </div>
+                <div class="view-all-services">
+                    <a href="servicos.html" class="button-primary">Ver todos os serviços</a>
+                </div>
+            </div>
+        </section>
     </main>
-    
+
+    <footer class="main-footer">
+        <div class="footer-content content-width">
+            <div class="footer-text">
+                <h3>Vamos criar algo incrível juntos?</h3>
+                <p>Estou disponível para novos projetos. Entre em contato!</p>
+                <a href="mailto:contato@gustavoponce.com.br">contato@gustavoponce.com.br</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/ogustavoponce" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/GustavoPonce" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/5542999266932" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Gustavo Ponce. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
     <script src="script.js" defer></script>
 </body>
 </html>
