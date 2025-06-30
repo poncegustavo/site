@@ -1,42 +1,27 @@
-/* VERSÃO FINAL COM FOCO TOTAL EM MOBILE */
+/* VERSÃO FINAL COM POLIMENTO FINO PARA MOBILE */
 
 :root {
-    --font-heading: 'Poppins', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --color-accent: #006dff;
-    --color-accent-glow: rgba(0, 109, 255, 0.15);
-    --color-background: #0F172A; 
-    --color-background-section: #1E293B;
-    --color-text-primary: #F8FAFC;
-    --color-text-secondary: #94A3B8;
-    --color-border: #334155;
-    --border-radius: 12px;
-    --shadow-soft: rgba(0, 0, 0, 0.25);
-    --content-width: 1140px;
+    --font-heading: 'Poppins', sans-serif; --font-body: 'Inter', sans-serif;
+    --color-accent: #006dff; --color-accent-glow: rgba(0, 109, 255, 0.15);
+    --color-background: #0F172A; --color-background-section: #1E293B;
+    --color-text-primary: #F8FAFC; --color-text-secondary: #94A3B8;
+    --color-border: #334155; --border-radius: 12px;
+    --shadow-soft: rgba(0, 0, 0, 0.25); --content-width: 1140px;
     --transition-smooth: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-
 body {
-    font-family: var(--font-body);
-    background-color: var(--color-background);
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-body); background-color: var(--color-background);
+    color: var(--color-text-secondary); line-height: 1.7; font-size: 16px;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
-
-/* --- ESTILOS GERAIS DE DESKTOP (BASE) --- */
 .content-width { max-width: var(--content-width); margin: 0 auto; padding: 0 2rem; }
 .subheading { text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.9rem; font-weight: 600; color: var(--color-accent); margin-bottom: 1rem; }
 h1, h2, h3 { font-family: var(--font-heading); color: var(--color-text-primary); font-weight: 600; line-height: 1.3; }
 h1 { font-size: 3.8rem; font-weight: 700; }
 h2 { font-size: 2.8rem; }
 h3 { font-size: 1.5rem; }
-
 .main-header { padding: 1.5rem 0; border-bottom: 1px solid var(--color-border); background-color: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; }
 .header-content { display: flex; justify-content: space-between; align-items: center; }
 .logo { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--color-text-primary); text-decoration: none; }
@@ -62,7 +47,8 @@ section { padding: 7rem 0; }
 .testimonial-card blockquote { font-size: 1.15rem; line-height: 1.6; color: var(--color-text-primary); margin-bottom: 1.5rem; }
 .testimonial-card cite { font-style: normal; font-weight: 500; color: var(--color-text-secondary); }
 .services-section { text-align: center; }
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; text-align: left; }
+.services-header { margin-bottom: 3rem; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: left; }
 .service-item { background-color: var(--color-background); padding: 2.5rem; border-radius: var(--border-radius); border: 1px solid var(--color-border); transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); }
 .service-item:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 .service-item i { font-size: 2rem; color: var(--color-accent); margin-bottom: 1.5rem; display: block; }
@@ -79,92 +65,63 @@ section { padding: 7rem 0; }
 [data-animate][data-delay="100"] { transition-delay: 100ms; }
 [data-animate][data-delay="200"] { transition-delay: 200ms; }
 
-
-/* ---------------------------------------------------- */
-/* --- OTIMIZAÇÃO MOBILE TOTAL (MEDIA QUERIES) --- */
-/* ---------------------------------------------------- */
+/* ======================================================= */
+/* === OTIMIZAÇÃO MOBILE COM POLIMENTO FINO (MEDIA QUERIES) === */
+/* ======================================================= */
 
 @media (max-width: 992px) {
-
-    /* --- MENU HAMBÚRGUER E PAINEL OVERLAY --- */
+    /* --- MENU HAMBÚRGUER E PAINEL OVERLAY (JÁ OTIMIZADO) --- */
     .main-nav { display: none; }
-    .hamburger-menu {
-        display: flex; flex-direction: column; justify-content: center;
-        align-items: center; width: 44px; height: 44px;
-        cursor: pointer; z-index: 1001; position: relative;
-    }
-    .hamburger-menu .bar {
-        width: 28px; height: 3px; background-color: var(--color-text-primary);
-        border-radius: 2px; transition: all 0.3s ease-in-out; position: absolute;
-    }
+    .hamburger-menu { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 44px; height: 44px; cursor: pointer; z-index: 1001; position: relative; }
+    .hamburger-menu .bar { width: 28px; height: 3px; background-color: var(--color-text-primary); border-radius: 2px; transition: all 0.3s ease-in-out; position: absolute; }
     .hamburger-menu .bar:nth-child(1) { transform: translateY(-8px); }
     .hamburger-menu .bar:nth-child(3) { transform: translateY(8px); }
     .hamburger-menu.active .bar:nth-child(1) { transform: rotate(45deg); }
     .hamburger-menu.active .bar:nth-child(2) { transform: scaleX(0); }
     .hamburger-menu.active .bar:nth-child(3) { transform: rotate(-45deg); }
-    
     body.nav-open { overflow: hidden; }
-
-    .mobile-nav {
-        display: flex; flex-direction: column; justify-content: center;
-        align-items: center; gap: 2rem; /* ESPAÇAMENTO dos links do menu */
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background-color: var(--color-background); z-index: 999;
-        transform: translateY(-100%); opacity: 0; visibility: hidden;
-        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
-    }
+    .mobile-nav { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-background); z-index: 999; transform: translateY(-100%); opacity: 0; visibility: hidden; transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s; }
     .mobile-nav.active { transform: translateY(0); opacity: 1; visibility: visible; }
-    .mobile-nav a {
-        font-family: var(--font-heading); font-size: 2.2rem; font-weight: 600;
-        color: var(--color-text-primary); text-decoration: none;
-        opacity: 0; transform: translateY(10px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    .mobile-nav.active a {
-        opacity: 1; transform: translateY(0);
-        transition-delay: calc(0.2s + var(--i) * 0.1s);
-    }
-    .button-contact-mobile {
-        background-color: var(--color-accent); color: white;
-        padding: 0.8rem 1.8rem; border-radius: var(--border-radius);
-        font-size: 1.5rem; margin-top: 1rem;
-    }
+    .mobile-nav a { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 600; color: var(--color-text-primary); text-decoration: none; opacity: 0; transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease; }
+    .mobile-nav.active a { opacity: 1; transform: translateY(0); transition-delay: calc(0.2s + var(--i) * 0.1s); }
+    .button-contact-mobile { background-color: var(--color-accent); color: white; padding: 0.8rem 1.8rem; border-radius: var(--border-radius); font-size: 1.5rem; margin-top: 1rem; }
     
-    /* --- AJUSTES DE LAYOUT E ESPAÇAMENTO GERAL --- */
-    .content-width { padding: 0 1.5rem; } /* Garante respiro nas laterais */
-    section { padding: 5rem 0; } /* Reduz o padding vertical para mobile */
+    /* === AJUSTES DE POLIMENTO EM ESPAÇAMENTO E ALINHAMENTO === */
+    .content-width { padding: 0 1.5rem; }
+    section { padding: 5.5rem 0; } /* Aumenta o respiro entre seções */
 
-    h1 { font-size: 2.8rem; }
-    h2 { font-size: 2.2rem; }
+    h1 { font-size: 2.8rem; line-height: 1.25; }
+    h2 { font-size: 2.2rem; line-height: 1.3; margin-bottom: 1.5rem; } /* Mais margem abaixo do h2 */
 
-    /* --- ALINHAMENTO E ESPAÇAMENTO DAS SEÇÕES --- */
-    .about-section {
-        grid-template-columns: 1fr; /* Força coluna única */
-        gap: 2rem;
-        text-align: center;
-    }
-    .about-image {
-        max-width: 300px;
-        margin: 0 auto 1.5rem auto; /* Adiciona margem inferior para separar da texto */
-    }
+    /* Alinhamento da seção Sobre */
+    .about-section { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+    .about-image { max-width: 300px; margin: 0 auto 2rem auto; } /* Mais espaço abaixo da foto */
+    .principles-list { text-align: left; max-width: 320px; margin: 2rem auto 0 auto; } /* Centraliza a lista */
 
-    .testimonials-grid {
-        grid-template-columns: 1fr; /* Força coluna única */
-        gap: 2.5rem; /* Aumenta o espaçamento entre os depoimentos */
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr; /* Força coluna única */
-        gap: 1.5rem; /* Espaçamento entre os serviços */
-    }
+    /* Alinhamento da seção Prova Social */
+    .testimonials-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .testimonial-card { text-align: center; }
+    .testimonial-card blockquote { margin-left: auto; margin-right: auto; }
+    .testimonial-card cite { margin-top: 1.5rem; }
+
+    /* Alinhamento da seção Serviços */
+    .services-header { text-align: center; margin-bottom: 3rem; }
+    .services-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .service-item { text-align: center; }
+    .service-item i { margin-left: auto; margin-right: auto; } /* Centraliza o ícone */
+
+    /* Alinhamento do Rodapé */
+    .footer-text h3 { font-size: 2rem; }
+    .main-footer { padding-top: 6rem; }
+    .footer-bottom { margin-top: 3rem; padding-top: 3rem; }
 }
 
 @media (max-width: 480px) {
-    body { font-size: 15px; } /* Ajuste fino de fonte para telas muito pequenas */
-    .content-width { padding: 0 1rem; }
-    h1 { font-size: 2.2rem; line-height: 1.3; }
+    body { font-size: 15px; }
+    .content-width { padding: 0 1.2rem; }
+    h1 { font-size: 2.2rem; }
     h2 { font-size: 1.8rem; }
     h3 { font-size: 1.3rem; }
-    section { padding: 4rem 0; }
-    .service-item, .testimonial-card { padding: 2rem; } /* Ajusta padding interno dos cards */
+    section { padding: 4.5rem 0; }
+    .service-item, .testimonial-card { padding: 2rem; }
 }
