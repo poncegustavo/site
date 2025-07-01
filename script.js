@@ -1,16 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- EFEITO DE LUZ (SPOTLIGHT) ---
-    const spotlight = document.querySelector('.spotlight');
-    if (spotlight) {
-        document.addEventListener('mousemove', (e) => {
-            // Atualiza as variáveis CSS --x e --y com a posição do mouse
-            spotlight.style.setProperty('--x', e.clientX + 'px');
-            spotlight.style.setProperty('--y', e.clientY + 'px');
-        });
-    }
-
-    // --- LÓGICA DO MENU HAMBÚRGUER ---
+    // --- LÓGICA DO MENU HAMBÚRGUER (ROBUSTA) ---
     const hamburgerBtn = document.querySelector('.hamburger-menu');
     const mobileNavPanel = document.querySelector('.mobile-nav');
     const body = document.body;
@@ -39,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- LÓGICA DA ANIMAÇÃO DE SCROLL ---
+    // --- LÓGICA DA ANIMAÇÃO DE SCROLL (ESSENCIAL) ---
     const animatedElements = document.querySelectorAll('[data-animate]');
     if (animatedElements.length > 0) {
         const observer = new IntersectionObserver((entries) => {
