@@ -1,80 +1,112 @@
 :root {
-    --font-heading: 'Poppins', sans-serif; --font-body: 'Inter', sans-serif;
-    --color-accent: #007BFF; --color-accent-glow: rgba(0, 123, 255, 0.2);
-    --color-background: #0A192F; --color-background-card: rgba(23, 42, 69, 0.6);
-    --color-text-primary: #E6F1FF; --color-text-secondary: #8892B0;
-    --color-border: rgba(35, 53, 84, 0.7); --border-radius: 16px;
-    --content-width: 1100px; --transition-smooth: 0.3s ease-in-out;
+    --font-heading: 'Poppins', sans-serif; 
+    --font-body: 'Inter', sans-serif;
+    --color-accent: #007BFF;
+    --color-accent-glow: rgba(0, 123, 255, 0.2);
+    --color-background: #0A192F;
+    --color-background-card: rgba(23, 42, 69, 0.6);
+    --color-text-primary: #E6F1FF;
+    --color-text-secondary: #8892B0;
+    --color-border: rgba(35, 53, 84, 0.7);
+    --border-radius: 16px;
+    --content-width: 1100px;
+    --transition-smooth: 0.3s ease-in-out;
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: var(--font-body); background-color: var(--color-background);
-    color: var(--color-text-secondary); line-height: 1.7; font-size: 16px;
-    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
 }
-main { display: block; width: 100%; position: relative; z-index: 2; }
 
-/* --- EFEITO AURORA --- */
-.aurora-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; overflow: hidden; }
-.aurora-shape { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.4; }
-.aurora-shape.shape-1 { width: 500px; height: 500px; background: rgba(0, 123, 255, 0.3); top: -20%; left: -10%; animation: move1 20s ease-in-out infinite alternate; }
-.aurora-shape.shape-2 { width: 400px; height: 400px; background: rgba(80, 0, 255, 0.2); bottom: -15%; right: -10%; animation: move2 25s ease-in-out infinite alternate; }
-@keyframes move1 { from { transform: translate(0, 0) rotate(0deg); } to { transform: translate(100px, 50px) rotate(45deg); } }
-@keyframes move2 { from { transform: translate(0, 0) rotate(0deg); } to { transform: translate(-80px, -40px) rotate(-30deg); } }
+main {
+    display: block;
+    width: 100%;
+}
 
-/* --- COMPONENTES GERAIS E PREMIUM --- */
+/* --- ESTILOS GERAIS E COMPONENTES PREMIUM --- */
 .content-width { max-width: var(--content-width); margin: 0 auto; padding: 0 2rem; }
 .section-header { text-align: center; max-width: 750px; margin: 0 auto 4rem auto; }
 .subheading { text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; font-weight: 500; color: var(--color-accent); margin-bottom: 1rem; }
 h1, h2, h3 { font-family: var(--font-heading); color: var(--color-text-primary); font-weight: 700; line-height: 1.25; }
-h1 { font-size: clamp(2.8rem, 5vw, 4.2rem); } h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); } h3 { font-size: 1.4rem; font-weight: 600; }
-p { font-size: 1.1rem; max-width: 65ch; } p.tagline { margin: 1.5rem auto 2.5rem auto; }
+h1 { font-size: clamp(2.8rem, 5vw, 4rem); }
+h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); }
+h3 { font-size: 1.4rem; font-weight: 600; }
+p { font-size: 1.1rem; max-width: 65ch; }
+p.tagline { margin: 1.5rem auto 2.5rem auto; }
 
-/* --- ANIMAÇÃO DE TEXTO CINEMATOGRÁFICA --- */
-.reveal-text { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
-.reveal-text > * { opacity: 0; transform: translateY(100%); }
-
-/* --- CABEÇALHO COM HOVER REFINADO --- */
-.main-header { padding: 1.5rem 0; position: sticky; top: 0; z-index: 1000; transition: background-color var(--transition-smooth); }
-.main-header.scrolled { background-color: rgba(10, 25, 47, 0.85); border-bottom: 1px solid var(--color-border); backdrop-filter: blur(10px); }
+/* --- CABEÇALHO COM EFEITO DE VIDRO AO ROLAR --- */
+.main-header {
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
+    border-bottom: 1px solid transparent; /* Começa transparente */
+}
+.main-header.scrolled {
+    background-color: rgba(10, 25, 47, 0.85);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(10px);
+}
 .header-content { display: flex; justify-content: space-between; align-items: center; }
-.main-nav a { color: var(--color-text-secondary); text-decoration: none; margin-left: 2rem; font-weight: 500; font-size: 1rem; position: relative; padding: 0.5rem 0; overflow: hidden; }
-.main-nav a span { position: relative; transition: color var(--transition-smooth); }
-.main-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: var(--color-accent); transform: translateX(-101%); transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
-.main-nav a:hover span { color: var(--color-text-primary); }
-.main-nav a:hover::after { transform: translateX(0); }
+.logo { font-size: 1.6rem; font-weight: 700; color: var(--color-text-primary); text-decoration: none; }
+.main-nav a { color: var(--color-text-secondary); text-decoration: none; margin-left: 2rem; font-weight: 500; font-size: 1rem; position: relative; padding: 0.5rem 0; }
+.main-nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background-color: var(--color-accent); transition: all var(--transition-smooth); }
+.main-nav a:hover { color: var(--color-text-primary); }
+.main-nav a:hover::after { width: 100%; left: 0; }
 
-/* --- HERO --- */
-section { padding: 9rem 0; }
+/* --- HERO COM LOGO --- */
+section { padding: 8rem 0; }
 .hero-section { text-align: center; padding: 8rem 0; display: flex; align-items: center; min-height: 90vh; }
-.hero-logo { max-width: 180px; margin-bottom: 2rem; filter: drop-shadow(0 0 20px var(--color-accent-glow)); transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.hero-logo {
+    max-width: 180px;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 0 15px var(--color-accent-glow));
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
 .hero-section:hover .hero-logo { transform: scale(1.05); }
 
 /* --- CARDS COM EFEITO DE VIDRO (GLASSMORPHISM) --- */
 .service-card, .testimonial-card {
-    background-color: var(--color-background-card); border: 1px solid var(--color-border);
-    backdrop-filter: blur(10px); border-radius: var(--border-radius);
-    padding: 2.5rem; height: 100%;
+    background-color: var(--color-background-card);
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    height: 100%;
     transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
 }
-.service-card:hover, .testimonial-card:hover { transform: translateY(-10px); border-color: rgba(0, 123, 255, 0.5); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+.service-card:hover, .testimonial-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 123, 255, 0.5);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
 
-/* --- OUTRAS SEÇÕES (com ajustes de espaçamento) --- */
+/* --- SEÇÕES --- */
 .about-section { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 5rem; align-items: center; }
 .about-image img { width: 100%; border-radius: var(--border-radius); }
 .services-section { position: relative; z-index: 2; border-top: 1px solid var(--color-border); }
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 .social-proof-section { text-align: center; border-top: 1px solid var(--color-border); }
 .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 4rem; }
-
-/* ... (outros estilos de card e seções que já estavam bons) ... */
-.cta-section { padding: 8rem 0; text-align: center; background: radial-gradient(circle, var(--color-background-card), var(--color-background) 80%); }
+.cta-section { padding: 7rem 0; text-align: center; border-top: 1px solid var(--color-border); }
 
 /* --- RODAPÉ --- */
 .main-footer { padding: 4rem 0 2rem 0; background-color: var(--color-background-card); border-top: 1px solid var(--color-border); backdrop-filter: blur(10px); position: relative; z-index: 2; }
-/* ... (outros estilos de rodapé que já estavam bons) ... */
-
-/* --- ANIMAÇÕES E RESPONSIVIDADE --- */
-/* ... (código de animações e mobile que já estava bom) ... */
+/* ... (Resto do código do rodapé, botões, animações e mobile que já estava bom) ... */
