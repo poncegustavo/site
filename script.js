@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    // --- EFEITO DE LUZ (SPOTLIGHT) ---
+    const spotlight = document.querySelector('.spotlight');
+    if (spotlight) {
+        document.addEventListener('mousemove', (e) => {
+            // Atualiza as variáveis CSS --x e --y com a posição do mouse
+            spotlight.style.setProperty('--x', e.clientX + 'px');
+            spotlight.style.setProperty('--y', e.clientY + 'px');
+        });
+    }
+
+    // --- LÓGICA DO MENU HAMBÚRGUER ---
     const hamburgerBtn = document.querySelector('.hamburger-menu');
     const mobileNavPanel = document.querySelector('.mobile-nav');
     const body = document.body;
@@ -13,8 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (hamburgerBtn && mobileNavPanel) {
         hamburgerBtn.addEventListener('click', toggleMenu);
-
-        // Adiciona um listener para fechar o menu se clicar fora (opcional, mas recomendado)
         document.addEventListener('click', function(event) {
             const isClickInsideNav = mobileNavPanel.contains(event.target);
             const isClickOnHamburger = hamburgerBtn.contains(event.target);
@@ -22,8 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 toggleMenu();
             }
         });
-
-        // Adiciona listener para a tecla 'Escape'
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape' && mobileNavPanel.classList.contains('active')) {
                 toggleMenu();
@@ -31,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Lógica de animação de scroll
+    // --- LÓGICA DA ANIMAÇÃO DE SCROLL ---
     const animatedElements = document.querySelectorAll('[data-animate]');
     if (animatedElements.length > 0) {
         const observer = new IntersectionObserver((entries) => {
