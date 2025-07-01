@@ -1,4 +1,4 @@
-/* VERSÃO MASTERIZADA FINAL - PREMIUM E FOCO EM CONVERSÃO */
+/* VERSÃO FINAL E CORRIGIDA - PREMIUM E FOCO EM CONVERSÃO */
 
 :root {
     --font-heading: 'Poppins', sans-serif; --font-body: 'Inter', sans-serif;
@@ -34,10 +34,7 @@ p.tagline { margin: 1rem auto 2.5rem auto; }
     font-weight: 600; font-family: var(--font-body); border: 1px solid var(--color-accent);
     transition: all var(--transition-smooth); box-shadow: 0 5px 15px rgba(0, 109, 255, 0.2);
 }
-.button-primary:hover { 
-    background-color: transparent; color: var(--color-accent); 
-    transform: translateY(-3px); box-shadow: none;
-}
+.button-primary:hover { background-color: transparent; color: var(--color-accent); transform: translateY(-3px); box-shadow: none; }
 .button-contact { 
     border: 1px solid var(--color-border); color: var(--color-text-secondary); 
     padding: 0.5rem 1.5rem; border-radius: var(--border-radius); 
@@ -58,38 +55,20 @@ section { padding: 7rem 0; }
 .principles-list { list-style: none; margin-top: 2rem; padding-left: 0; }
 .principles-list li { display: flex; align-items: center; margin-bottom: 1rem; }
 .principles-list i { color: var(--color-accent); margin-right: 1rem; font-size: 1.2rem; }
-
-/* --- SEÇÃO DE SERVIÇOS REDESENHADA --- */
 .services-section { background-color: var(--color-background-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-.service-card {
-    background: var(--color-background);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    padding: 2.5rem;
-    height: 100%;
-    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
-}
-.service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2), 0 0 40px var(--color-accent-glow);
-}
+.service-card { background: var(--color-background); border: 1px solid var(--color-border); border-radius: var(--border-radius); padding: 2.5rem; height: 100%; transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); }
+.service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.2), 0 0 40px var(--color-accent-glow); }
 .service-card .service-icon { font-size: 2.2rem; color: var(--color-accent); margin-bottom: 1.5rem; }
 .service-card p { font-size: 1rem; color: var(--color-text-secondary); }
-
-/* --- SEÇÃO DE PROVA SOCIAL REFINADA --- */
-.social-proof-section { text-align: center; border-top: 1px solid var(--color-border); }
+.social-proof-section { text-align: center; }
 .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 4rem; }
 .testimonial-card { background-color: var(--color-background-card); padding: 2.5rem; border-radius: var(--border-radius); border: 1px solid var(--color-border); display: flex; flex-direction: column; text-align: left; }
 .testimonial-icon { color: var(--color-accent); font-size: 2rem; margin-bottom: 1.5rem; }
 .testimonial-card blockquote { font-size: 1.1rem; line-height: 1.6; color: var(--color-text-primary); margin-bottom: 1.5rem; font-style: italic; flex-grow: 1; }
 .testimonial-card cite { font-style: normal; font-weight: 700; color: var(--color-text-primary); }
-
-/* --- SEÇÃO DE CTA --- */
 .cta-section { padding: 6rem 0; text-align: center; background-color: var(--color-background-card); border-top: 1px solid var(--color-border); }
 .cta-content p { margin: 1rem auto 2.5rem auto; }
-
-/* --- RODAPÉ --- */
 .main-footer { padding: 4rem 0 2rem 0; }
 .footer-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--color-border); }
 .footer-nav a { color: var(--color-text-secondary); text-decoration: none; margin-left: 2rem; font-weight: 500; transition: color var(--transition-smooth); }
@@ -99,14 +78,13 @@ section { padding: 7rem 0; }
 .footer-social a { color: var(--color-text-secondary); font-size: 1.5rem; transition: color var(--transition-smooth), transform var(--transition-smooth); }
 .footer-social a:hover { color: var(--color-accent); transform: translateY(-3px); }
 .footer-copyright p { font-size: 0.9rem; margin: 0; }
-
-/* --- ANIMAÇÕES E RESPONSIVIDADE --- */
 [data-animate] { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
 [data-animate].visible { opacity: 1; transform: translateY(0); }
 [data-animate][data-delay="100"] { transition-delay: 100ms; }
 [data-animate][data-delay="200"] { transition-delay: 200ms; }
 .hamburger-menu, .mobile-nav { display: none; }
 
+/* --- OTIMIZAÇÃO MOBILE --- */
 @media (max-width: 992px) {
     .main-nav { display: none; }
     .hamburger-menu { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 44px; height: 44px; cursor: pointer; z-index: 1001; position: relative; border: none; background: transparent; padding: 0; }
@@ -131,5 +109,5 @@ section { padding: 7rem 0; }
     .about-section { grid-template-columns: 1fr; text-align: center; }
     .about-image { max-width: 280px; margin: 0 auto 2rem auto; }
     .footer-top, .footer-bottom { flex-direction: column; align-items: center; gap: 2rem; text-align: center; }
-    .footer-nav { display: flex; gap: 1.5rem; } .footer-nav a { margin: 0; }
+    .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 1.5rem; } .footer-nav a { margin: 0; }
 }
