@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-
-    // --- LÓGICA DO MENU HAMBÚRGUER (JÁ APROVADA) ---
+    // --- LÓGICA DO MENU HAMBÚRGUER ---
     const hamburgerBtn = document.querySelector('.hamburger-menu');
     const mobileNavPanel = document.querySelector('.mobile-nav');
     const body = document.body;
@@ -14,46 +13,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (hamburgerBtn && mobileNavPanel) {
-        // ... (código do menu que já estava bom, omitido por brevidade) ...
-    }
-
-    // --- NOVA LÓGICA PARA O ACORDEÃO DE SERVIÇOS ---
-    const accordionItems = document.querySelectorAll('.service-accordion-item');
-
-    if (accordionItems.length > 0) {
-        accordionItems.forEach(item => {
-            const header = item.querySelector('.accordion-header');
-            const content = item.querySelector('.accordion-content');
-
-            header.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-
-                // Fecha todos os outros itens para um comportamento de acordeão clássico
-                accordionItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                        otherItem.querySelector('.accordion-content').style.maxHeight = '0px';
-                        otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
-                    }
-                });
-
-                // Alterna o item clicado
-                if (!isActive) {
-                    item.classList.add('active');
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    header.setAttribute('aria-expanded', 'true');
-                } else {
-                    item.classList.remove('active');
-                    content.style.maxHeight = '0px';
-                    header.setAttribute('aria-expanded', 'false');
-                }
-            });
+        hamburgerBtn.addEventListener('click', toggleMenu);
+        // Listener para fechar o menu ao clicar fora
+        document.addEventListener('click', function(event) {
+            if (!mobileNavPanel.contains(event.target) && !hamburgerBtn.contains(event.target) && mobileNavPanel.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+        // Listener para a tecla 'Escape'
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && mobileNavPanel.classList.contains('active')) {
+                toggleMenu();
+            }
         });
     }
 
-    // --- LÓGICA DA ANIMAÇÃO DE SCROLL (JÁ APROVADA) ---
+    // --- LÓGICA DA ANIMAÇÃO DE SCROLL ---
     const animatedElements = document.querySelectorAll('[data-animate]');
     if (animatedElements.length > 0) {
-       // ... (código do IntersectionObserver que já estava bom) ...
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const delay = entry.target.getAttribute('data-delay');
+                    if (delay) {
+                        entry.target.style.transitionDelay = `${delay}ms`;
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        animatedElements.forEach(element => observer.observe(element));
     }
 });
