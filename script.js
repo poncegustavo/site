@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // --- EFEITO DE HEADER QUE APARECE AO ROLAR ---
     const header = document.querySelector('.main-header');
     if (header) {
         const handleScroll = () => {
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', handleScroll);
     }
 
-    // --- LÓGICA DO MENU HAMBÚRGUER (ESTÁVEL) ---
     const hamburgerBtn = document.querySelector('.hamburger-menu');
     const mobileNavPanel = document.querySelector('.mobile-nav');
     const body = document.body;
@@ -37,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- LÓGICA DA ANIMAÇÃO DE SCROLL (ESTÁVEL) ---
     const animatedElements = document.querySelectorAll('[data-animate]');
     if (animatedElements.length > 0) {
         const observer = new IntersectionObserver((entries) => {
@@ -54,4 +51,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { threshold: 0.1 });
         animatedElements.forEach(element => observer.observe(element));
     }
+
+    document.querySelectorAll('.service-card, .testimonial-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
 });
