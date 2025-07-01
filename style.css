@@ -1,5 +1,5 @@
 /* ======================================================= */
-/* === VERSÃO FINAL CORRIGIDA - À PROVA DE BUGS === */
+/* === CSS FINAL - VERSÃO SEGURA E CORRIGIDA === */
 /* ======================================================= */
 
 :root {
@@ -37,9 +37,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- GARANTIA DE LAYOUT --- */
 main {
-    display: block;
+    display: block; /* Garante que o main seja tratado como um bloco */
     width: 100%;
 }
 
@@ -76,15 +75,13 @@ p.tagline { margin: 1rem auto 2.5rem auto; }
 .main-nav a { color: var(--color-text-secondary); text-decoration: none; margin-left: 2rem; font-weight: 500; transition: color var(--transition-smooth); font-size: 1rem; }
 .main-nav a:hover { color: var(--color-accent); }
 
-section { padding: 7rem 0; }
+section {
+    padding: 7rem 0;
+}
 
 .hero-section {
     text-align: center;
-    padding: 10rem 0; /* REMOVIDO min-height. Usando padding para altura. */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 8rem 0; /* Uso de padding para criar altura, muito mais seguro que min-height */
 }
 
 .about-section { 
@@ -129,7 +126,7 @@ section { padding: 7rem 0; }
 [data-animate][data-delay="200"] { transition-delay: 200ms; }
 .hamburger-menu, .mobile-nav { display: none; }
 
-/* --- OTIMIZAÇÃO MOBILE --- */
+/* --- OTIMIZAÇÃO MOBILE CORRIGIDA E SEGURA --- */
 @media (max-width: 992px) {
     .main-nav { display: none; }
     .hamburger-menu { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 44px; height: 44px; cursor: pointer; z-index: 1001; position: relative; border: none; background: transparent; padding: 0; }
