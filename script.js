@@ -2,15 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- EFEITO DE HEADER QUE APARECE AO ROLAR ---
     const header = document.querySelector('.main-header');
     if (header) {
-        // Função para verificar a rolagem
         const handleScroll = () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            header.classList.toggle('scrolled', window.scrollY > 50);
         };
-        // Ouve o evento de rolagem
         window.addEventListener('scroll', handleScroll);
     }
 
