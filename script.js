@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-
     const hamburgerBtn = document.querySelector('.hamburger-menu');
     const mobileNavPanel = document.querySelector('.mobile-nav');
     const body = document.body;
-    const navLinks = document.querySelectorAll('.mobile-nav a');
 
     function toggleMenu() {
         const isActive = hamburgerBtn.classList.contains('active');
@@ -16,16 +14,24 @@ document.addEventListener('DOMContentLoaded', function() {
     if (hamburgerBtn && mobileNavPanel) {
         hamburgerBtn.addEventListener('click', toggleMenu);
 
-        navLinks.forEach((link, index) => {
-            link.style.setProperty('--i', index);
-            link.addEventListener('click', () => {
-                if (mobileNavPanel.classList.contains('active')) {
-                    toggleMenu();
-                }
-            });
+        // Adiciona um listener para fechar o menu se clicar fora (opcional, mas recomendado)
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = mobileNavPanel.contains(event.target);
+            const isClickOnHamburger = hamburgerBtn.contains(event.target);
+            if (!isClickInsideNav && !isClickOnHamburger && mobileNavPanel.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+
+        // Adiciona listener para a tecla 'Escape'
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && mobileNavPanel.classList.contains('active')) {
+                toggleMenu();
+            }
         });
     }
 
+    // Lógica de animação de scroll
     const animatedElements = document.querySelectorAll('[data-animate]');
     if (animatedElements.length > 0) {
         const observer = new IntersectionObserver((entries) => {
