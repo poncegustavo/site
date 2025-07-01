@@ -14,17 +14,59 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (hamburgerBtn && mobileNavPanel) {
         hamburgerBtn.addEventListener('click', toggleMenu);
-        // Listener para fechar o menu ao clicar fora
         document.addEventListener('click', function(event) {
-            if (!mobileNavPanel.contains(event.target) && !hamburgerBtn.contains(event.target) && mobileNavPanel.classList.contains('active')) {
+            const isClickInsideNav = mobileNavPanel.contains(event.target);
+            const isClickOnHamburger = hamburgerBtn.contains(event.target);
+            if (!isClickInsideNav && !isClickOnHamburger && mobileNavPanel.classList.contains('active')) {
                 toggleMenu();
             }
         });
-        // Listener para a tecla 'Escape'
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape' && mobileNavPanel.classList.contains('active')) {
                 toggleMenu();
             }
+        });
+    }
+
+    // --- NOVA LÓGICA PARA O ACORDEÃO DE SERVIÇOS ---
+    const accordionItems = document.querySelectorAll('.service-accordion-item');
+    if (accordionItems.length > 0) {
+        // Abre o primeiro item por padrão para o visitante já ver um exemplo
+        const firstItem = accordionItems[0];
+        if (firstItem) {
+            firstItem.classList.add('active');
+            firstItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'true');
+            const firstContent = firstItem.querySelector('.accordion-content');
+            firstContent.style.maxHeight = firstContent.scrollHeight + 'px';
+        }
+
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Fecha todos os outros itens
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                        otherItem.querySelector('.accordion-content').style.maxHeight = '0px';
+                    }
+                });
+
+                // Alterna (abre ou fecha) o item clicado
+                if (!isActive) {
+                    item.classList.add('active');
+                    header.setAttribute('aria-expanded', 'true');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                } else {
+                    item.classList.remove('active');
+                    header.setAttribute('aria-expanded', 'false');
+                    content.style.maxHeight = '0px';
+                }
+            });
         });
     }
 
