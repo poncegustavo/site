@@ -36,60 +36,24 @@
 
     <main>
         <section class="hero-section">
-            <div class="hero-container content-width">
-                <div class="hero-text">
-                    <span class="subheading" data-animate>DESIGNER GRÁFICO & ESTRATEGISTA DE MARCA</span>
-                    <h1 data-animate>Design que posiciona, inspira e converte.</h1>
-                    <p class="tagline" data-animate data-delay="100">Meu trabalho é criar uma identidade visual que não só captura a essência da sua marca, mas a transforma em uma vantagem competitiva no mercado.</p>
-                    <div class="hero-buttons" data-animate data-delay="200">
-                        <a href="contato.html" class="button-primary">Iniciar um Projeto</a>
-                        <a href="#services" class="button-secondary">Ver Serviços <i class="fas fa-arrow-down"></i></a>
-                    </div>
-                </div>
-                <div class="hero-image-wrapper">
-                    <div class="hero-image" data-animate>
-                        <img src="images/foto-gustavo.jpg" alt="Foto de Gustavo Ponce">
-                    </div>
-                </div>
+            <div id="particles-js"></div>
+            <div class="hero-content content-width" data-animate>
+                <span class="subheading">DESIGN GRÁFICO & ESTRATEGISTA DE MARCA</span>
+                <h1>Design que posiciona, inspira e converte.</h1>
+                <p class="tagline">Eu transformo ideias em identidades visuais poderosas e experiências digitais que geram conexões verdadeiras e resultados mensuráveis.</p>
+                <a href="contato.html" class="button-primary">Vamos começar um projeto</a>
             </div>
         </section>
 
         <section id="about" class="about-section">
-            <div class="content-width">
-                <div class="section-header" data-animate>
+            <div class="content-width about-container">
+                <div class="about-image" data-animate>
+                    <img src="images/foto-gustavo.jpg" alt="Foto de Gustavo Ponce">
+                </div>
+                <div class="about-text" data-animate>
                     <span class="subheading">Minha Filosofia</span>
                     <h2>Design é a união inteligente entre estética e função.</h2>
-                </div>
-                <div class="about-content" data-animate>
-                    <p>Para mim, design vai muito além de um belo visual. É uma disciplina estratégica que resolve problemas, comunica valores e cria conexões autênticas. Cada projeto é uma imersão profunda no universo do cliente para construir uma ponte sólida e confiável entre a marca e seu público, garantindo que cada elemento visual trabalhe para um objetivo maior: o sucesso do seu negócio.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="differentials" class="differentials-section">
-            <div class="content-width">
-                <div class="differentials-list">
-                    <div class="differential-item" data-animate>
-                        <div class="differential-number">01</div>
-                        <div class="differential-text">
-                            <h3>Design Focado em Resultados</h3>
-                            <p>Analisamos seus objetivos de negócio para garantir que cada peça de design criada não seja apenas bonita, mas uma ferramenta eficaz para o seu crescimento.</p>
-                        </div>
-                    </div>
-                    <div class="differential-item" data-animate data-delay="100">
-                        <div class="differential-number">02</div>
-                        <div class="differential-text">
-                            <h3>Processo Colaborativo</h3>
-                            <p>Você é parte essencial do processo criativo. Acredito em uma comunicação transparente e constante para que o resultado final seja perfeitamente alinhado à sua visão.</p>
-                        </div>
-                    </div>
-                    <div class="differential-item" data-animate data-delay="200">
-                        <div class="differential-number">03</div>
-                        <div class="differential-text">
-                            <h3>Qualidade e Entrega</h3>
-                            <p>Compromisso com a excelência em cada detalhe, desde o conceito inicial até a entrega de todos os arquivos finais, perfeitamente organizados para o seu uso.</p>
-                        </div>
-                    </div>
+                    <p>Acredito que um bom design é a ponte entre uma marca e seu público. Ele deve ser funcional, claro e esteticamente impecável. Meu trabalho é mergulhar na essência do seu negócio para criar soluções visuais que não apenas pareçam boas, mas que funcionem como um ativo estratégico para o seu crescimento.</p>
                 </div>
             </div>
         </section>
@@ -98,35 +62,23 @@
             <div class="services-content content-width">
                 <div class="section-header" data-animate>
                     <span class="subheading">Serviços</span>
-                    <h2>Soluções de design para cada etapa da sua marca</h2>
+                    <h2>Soluções de design para cada etapa do seu negócio</h2>
                 </div>
-                <div class="services-accordion" data-animate>
-                    <div class="service-accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <h3>Identidade Visual Estratégica</h3>
-                            <i class="fas fa-chevron-down accordion-icon"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <p>Mais do que um logotipo, criamos um universo visual completo. Desenvolvemos o conceito, a paleta de cores, a tipografia e as diretrizes que darão vida e consistência à sua marca em todos os pontos de contato, garantindo reconhecimento e profissionalismo.</p>
-                        </div>
+                <div class="services-grid">
+                    <div class="service-card" data-animate>
+                        <div class="service-icon"><i class="fas fa-pencil-ruler"></i></div>
+                        <h3>Identidade Visual Estratégica</h3>
+                        <p>Mais do que um logotipo, criamos um universo visual completo que dará vida e consistência à sua marca em todos os pontos de contato.</p>
                     </div>
-                    <div class="service-accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <h3>Design para Mídias Sociais</h3>
-                            <i class="fas fa-chevron-down accordion-icon"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <p>Fortaleça sua presença online com um design coeso e impactante. Crio templates e peças gráficas para Instagram, Facebook e outras plataformas, pensados para aumentar o engajamento, comunicar sua mensagem e transformar seguidores em clientes.</p>
-                        </div>
+                    <div class="service-card" data-animate data-delay="100">
+                        <div class="service-icon"><i class="fas fa-palette"></i></div>
+                        <h3>Design para Mídias Sociais</h3>
+                        <p>Fortaleça sua presença online com um design coeso e impactante, pensado para aumentar o engajamento e transformar seguidores em clientes.</p>
                     </div>
-                    <div class="service-accordion-item">
-                        <button class="accordion-header" aria-expanded="false">
-                            <h3>UI/UX Design (Sites e Apps)</h3>
-                            <i class="fas fa-chevron-down accordion-icon"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <p>Uma interface bonita não é nada sem uma experiência de usuário intuitiva. Projeto telas para sites e aplicativos com foco total no usuário, garantindo que a jornada seja fácil, agradável e otimizada para a conversão de seus objetivos de negócio.</p>
-                        </div>
+                    <div class="service-card" data-animate data-delay="200">
+                        <div class="service-icon"><i class="fas fa-desktop"></i></div>
+                        <h3>UI/UX Design (Sites e Apps)</h3>
+                        <p>Projeto telas com foco total no usuário, garantindo que a jornada seja fácil, agradável e otimizada para a conversão de seus objetivos.</p>
                     </div>
                 </div>
             </div>
@@ -136,17 +88,17 @@
             <div class="social-proof-content content-width">
                 <div class="section-header" data-animate>
                     <span class="subheading">Parcerias de Sucesso</span>
-                    <h2>A confiança que gera resultados</h2>
+                    <h2>O que meus clientes dizem</h2>
                 </div>
                 <div class="testimonials-grid">
                     <div class="testimonial-card" data-animate>
                         <div class="testimonial-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>O trabalho do Gustavo foi um divisor de águas. A nova identidade visual nos deu a confiança e o profissionalismo que precisávamos para alcançar um novo patamar de clientes.</blockquote>
+                        <blockquote>O trabalho do Gustavo foi um divisor de águas. A nova identidade visual nos deu a confiança e o profissionalismo que precisávamos.</blockquote>
                         <cite>– Nome do Cliente, CEO da Empresa Exemplo</cite>
                     </div>
                     <div class="testimonial-card" data-animate data-delay="100">
                         <div class="testimonial-icon"><i class="fas fa-quote-left"></i></div>
-                        <blockquote>Profissional extremamente atencioso e talentoso. O processo foi claro do início ao fim e o resultado final superou todas as nossas expectativas. Recomendo fortemente.</blockquote>
+                        <blockquote>Profissional extremamente atencioso e talentoso. O processo foi claro do início ao fim e o resultado final superou todas as nossas expectativas.</blockquote>
                         <cite>– Outro Cliente, Sócio da Startup ABC</cite>
                     </div>
                 </div>
@@ -155,9 +107,8 @@
 
         <section class="cta-section">
             <div class="cta-content content-width" data-animate>
-                <span class="subheading">Está pronto?</span>
-                <h2>Vamos transformar sua visão em realidade.</h2>
-                <p>Seu projeto merece um design que o eleve ao próximo nível. Estou pronto para ouvir suas ideias e transformá-las em um resultado visual extraordinário.</p>
+                <h2>Pronto para transformar sua marca?</h2>
+                <p>Vamos conversar sobre como o design pode ser seu maior aliado competitivo. O próximo passo é simples.</p>
                 <a href="contato.html" class="button-primary">Solicitar Orçamento Gratuito</a>
             </div>
         </section>
@@ -186,6 +137,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js" defer></script>
 </body>
 </html>

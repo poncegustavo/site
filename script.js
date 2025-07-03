@@ -1,31 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
+
+    // --- EFEITO DE HEADER AO ROLAR ---
     const header = document.querySelector('.main-header');
     if (header) {
-        const handleScroll = () => {
+        window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
+        });
     }
 
+    // --- LÓGICA DO MENU HAMBÚRGUER ---
     const hamburgerBtn = document.querySelector('.hamburger-menu');
     const mobileNavPanel = document.querySelector('.mobile-nav');
     const body = document.body;
-    
     function toggleMenu() {
         const isActive = hamburgerBtn.classList.contains('active');
-        hamburgerBtn.setAttribute('aria-expanded', String(!isActive));
+        hamburgerBtn.setAttribute('aria-expanded', !isActive);
         hamburgerBtn.classList.toggle('active');
         mobileNavPanel.classList.toggle('active');
         body.classList.toggle('nav-open');
     }
-
     if (hamburgerBtn && mobileNavPanel) {
         hamburgerBtn.addEventListener('click', toggleMenu);
         document.addEventListener('click', function(event) {
-            const isClickInsideNav = mobileNavPanel.contains(event.target);
-            const isClickOnHamburger = hamburgerBtn.contains(event.target);
-            if (!isClickInsideNav && !isClickOnHamburger && mobileNavPanel.classList.contains('active')) {
+            if (!mobileNavPanel.contains(event.target) && !hamburgerBtn.contains(event.target) && mobileNavPanel.classList.contains('active')) {
                 toggleMenu();
             }
         });
@@ -36,50 +33,55 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // --- ANIMAÇÃO DE ENTRADA DE ELEMENTOS ---
     const animatedElements = document.querySelectorAll('[data-animate]');
     if (animatedElements.length > 0) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    const delay = entry.target.getAttribute('data-delay');
-                    if (delay) {
-                        entry.target.style.transitionDelay = `${delay}ms`;
-                    }
                     observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1 });
-        animatedElements.forEach(element => observer.observe(element));
+        animatedElements.forEach(element => {
+            const delay = element.getAttribute('data-delay');
+            if (delay) {
+                element.style.transitionDelay = `${delay}ms`;
+            }
+            observer.observe(element);
+        });
     }
-    
-    const accordionItems = document.querySelectorAll('.service-accordion-item');
-    if (accordionItems.length > 0) {
-        const firstItem = accordionItems[0];
-        if (firstItem) {
-            firstItem.classList.add('active');
-            firstItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'true');
-            const firstContent = firstItem.querySelector('.accordion-content');
-            firstContent.style.maxHeight = firstContent.scrollHeight + 'px';
-        }
 
-        accordionItems.forEach(item => {
-            const header = item.querySelector('.accordion-header');
-            const content = item.querySelector('.accordion-content');
+    // --- EFEITO DE LUZ INTERATIVO NOS CARDS ---
+    document.querySelectorAll('.service-card, .testimonial-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
 
-            header.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                accordionItems.forEach(otherItem => {
-                    otherItem.classList.remove('active');
-                    otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
-                    otherItem.querySelector('.accordion-content').style.maxHeight = '0px';
-                });
-                if (!isActive) {
-                    item.classList.add('active');
-                    header.setAttribute('aria-expanded', 'true');
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                }
-            });
+    // --- INICIA O EFEITO DE PARTÍCULAS NA HERO SECTION ---
+    if (document.getElementById('particles-js')) {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle", },
+                "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                "size": { "value": 2, "random": true, "anim": { "enable": false } },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 1, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": false }, "resize": true },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } }
+            },
+            "retina_detect": true
         });
     }
 });
