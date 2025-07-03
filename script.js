@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    
     const header = document.querySelector('.main-header');
     if (header) {
         const handleScroll = () => {
@@ -10,10 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburgerBtn = document.querySelector('.hamburger-menu');
     const mobileNavPanel = document.querySelector('.mobile-nav');
     const body = document.body;
-
+    
     function toggleMenu() {
         const isActive = hamburgerBtn.classList.contains('active');
-        hamburgerBtn.setAttribute('aria-expanded', !isActive);
+        hamburgerBtn.setAttribute('aria-expanded', String(!isActive));
         hamburgerBtn.classList.toggle('active');
         mobileNavPanel.classList.toggle('active');
         body.classList.toggle('nav-open');
@@ -51,14 +52,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { threshold: 0.1 });
         animatedElements.forEach(element => observer.observe(element));
     }
+    
+    const accordionItems = document.querySelectorAll('.service-accordion-item');
+    if (accordionItems.length > 0) {
+        const firstItem = accordionItems[0];
+        if (firstItem) {
+            firstItem.classList.add('active');
+            firstItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'true');
+            const firstContent = firstItem.querySelector('.accordion-content');
+            firstContent.style.maxHeight = firstContent.scrollHeight + 'px';
+        }
 
-    document.querySelectorAll('.service-card, .testimonial-card').forEach(card => {
-        card.addEventListener('mousemove', e => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                accordionItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                    otherItem.querySelector('.accordion-content').style.maxHeight = '0px';
+                });
+                if (!isActive) {
+                    item.classList.add('active');
+                    header.setAttribute('aria-expanded', 'true');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
         });
-    });
+    }
 });
